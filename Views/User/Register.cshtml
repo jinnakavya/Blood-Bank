@@ -1,0 +1,198 @@
+﻿@model Blood.Models.user
+
+@{
+    ViewBag.Title = "";
+}
+
+<title>Share a little !! Care a little !!</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="WOW Slider, javascript slideshow, slideshow html" />
+<meta name="description" content="WOWSlider created with WOW Slider, a free wizard program that helps you easily generate beautiful web slideshow" />
+<link href="~/engine1/style.css" rel="stylesheet" />
+<script src="~/engine1/jquery.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="~/Scripts/myScript.js"></script>
+<link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<a href="~/Content/Junction.otf"></a>
+<link href="~/Content/myStyle.css" rel="stylesheet" />
+<script src="~/Scripts/myScript.js"></script>
+
+<style>
+    .form{
+        padding-left:100px;
+        float:left;
+        display:inline-block;
+    }
+    .text-box{
+        width: 220px;
+        height: 30px !important;
+        
+    }
+    .donate{
+        margin-top:-500px;
+        margin-left:400px;
+    }
+
+    
+</style>
+
+@using (Html.BeginForm("Search", "User", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    <center>
+        <div class="headbar">
+            <br>
+            <img src="~/data1/images/kavya1.png">
+        </div><br>
+        <div>
+            <h1>Looking for Blood ?</h1><br>
+            <font color="#A00000" size="5">
+                States
+                <select id="State" name="State">
+                    <option>Choose a state</option>
+                    <option>North Carolina</option>
+                    <option>Texas</option>
+                    <option>Kansas</option>
+                    <option>Ohio</option>
+                    <option>Florida</option>
+                </select>
+                Blood Type
+                <select id="blood_type" name="blood_type">
+                    <option>Choose blood type</option>
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+                    <option>O</option>
+                    <option>O-</option>
+                </select>
+
+                <input type="submit" value="Search" onclick="location.href ='@Url.Action("Search", "User")'" class="btn btn-Danger" class="btn btn-Danger" />
+
+            </font>
+        </div>
+    </center>
+}
+<br><br>
+<!-- Start WOWSlider.com BODY section -->
+<div id="wowslider-container1" style="width:960px; height:360px;">
+    <div class="ws_images">
+        <ul>
+            <li><img src="~/data1/images/xx.jpg" alt="" title="Donate Blood Save a Life" id="wows1_1" /></li>
+            <li><img src="~/data1/images/cap_white_logo1.jpg" alt="Donate Blood Save a Life" title="Donate Blood Save a Life" id="wows1_0" /></li>
+            <li><img src="~/data1/images/bloodbagnotext0001.jpg" alt="" title="Donate Blood Save a Life" id="wows1_2" /></li>
+        </ul>
+    </div>
+    <div class="ws_bullets">
+        <div>
+            <a href="#" title="Donate Blood Save a Life"><img src="~/data1/tooltips/cap_white_logo1.jpg" alt="cap_white_logo1" />1</a>
+            <a href="#" title="Donate Blood Save a Life"><img src="~/data1/tooltips/xx.jpg" alt="xx" />2</a>
+            <a href="#" title="Donate Blood Save a Life"><img src="~/data1/tooltips/bloodbagnotext0001.jpg" alt="bloodbagnotext-0001" />3</a>
+        </div>
+    </div>
+    <span class="wsl"><a href="http://wowslider.com"></a></span>
+    <div class="ws_shadow"></div>
+</div>
+<script type="text/javascript" src="engine1/wowslider.js"></script>
+<script type="text/javascript" src="engine1/script.js"></script>
+<!-- End WOWSlider.com BODY section -->
+
+<br><br>
+<br><br><br>
+@using (Html.BeginForm("Register", "User", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    <div class="form span6" >
+
+        @Html.LabelFor(model => model.FirstName)
+
+
+        @Html.EditorFor(model => model.FirstName)
+        @Html.ValidationMessageFor(model => model.FirstName)
+        <br /><br />
+
+
+        @Html.LabelFor(model => model.LastName)
+
+        @Html.EditorFor(model => model.LastName)
+        @Html.ValidationMessageFor(model => model.LastName)
+
+        <br /><br />
+
+        @Html.LabelFor(model => model.EmailId)
+
+        @Html.EditorFor(model => model.EmailId)
+        @Html.ValidationMessageFor(model => model.EmailId)
+
+        <br /><br />
+
+        @Html.LabelFor(model => model.Address)
+
+        @Html.EditorFor(model => model.Address)
+        @Html.ValidationMessageFor(model => model.Address)
+
+        <br /><br />
+
+        @Html.LabelFor(model => model.State)
+
+        @Html.DropDownListFor(model => model.State, new List<SelectListItem>
+   {
+       new SelectListItem{Text="North Carolina",Value="North Carolina"},
+       new SelectListItem{Text="Texas",Value="Texas"},
+       new SelectListItem{Text="Kansas",Value="Kansas"},
+       new SelectListItem{Text="Ohio",Value="Ohio"},
+       new SelectListItem{Text="Florida",Value="Florida"}},"Choose a State", new { @class = "dropdown" })
+        @Html.ValidationMessageFor(model => model.State)
+
+        <br /><br />
+
+        @Html.LabelFor(model => model.Zipcode)
+
+        @Html.EditorFor(model => model.Zipcode)
+        @Html.ValidationMessageFor(model => model.Zipcode)
+
+        <br /><br />
+
+        @Html.LabelFor(model => model.BloodType)
+
+        @Html.DropDownListFor(model => model.BloodType, new List<SelectListItem>
+   {
+       new SelectListItem{Text="A-",Value="A-"},
+       new SelectListItem{Text="B-",Value="B-"},
+       new SelectListItem{Text="A+",Value="A+"},
+       new SelectListItem{Text="B+",Value="B+"},
+       new SelectListItem{Text="AB+",Value="AB+"},
+       new SelectListItem{Text="AB-",Value="AB-"},
+       new SelectListItem{Text="O+",Value="O+"},
+       new SelectListItem{Text="O-",Value="O-"}}, "Select Blood Type", new {@class="dropdown" })
+        
+        @Html.ValidationMessageFor(model => model.BloodType)
+        <br /><br />
+
+
+        <p>
+            <input type="submit" value="Submit" class="btn btn-default" />
+        </p>
+        <div>
+            <img class="donate" src="~/data1/images/kavya.png">
+        </div>
+
+        <label>@ViewBag.Message</label>
+
+    </div>
+       
+
+}
+
+<div>
+
+</div>

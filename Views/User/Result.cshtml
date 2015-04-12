@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Blood.Models.user>
+
+@{
+    
+}
+<script src="~/engine1/jquery.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="~/Scripts/myScript.js"></script>
+<link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<a href="~/Content/Junction.otf"></a>
+<link href="~/Content/myStyle.css" rel="stylesheet" />
+<script src="~/Scripts/myScript.js"></script>
+
+<style>
+    .body {
+        background-image: url('../data1/images/bg.png');
+    }
+
+    .myresult {
+        color: #A00000;
+    }
+    table, th {
+        color:black;
+    }
+    td,th{
+        padding-left:30px;
+    }
+    th{
+
+        padding-bottom:10px;
+    }
+    tr{
+        padding-bottom:10px;
+    }
+</style>
+<center>
+    <div class="headbar">
+        <br>
+        <img src="~/data1/images/kavya1.png">
+    </div><br>
+    <div>
+        <h1>Looking for Blood ?</h1><br>
+    </div>
+</center>
+        <body>
+            <table class="myresult">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EmailId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.State)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Zipcode)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BloodType)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmailId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.State)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Zipcode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BloodType)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+            <label>@ViewBag.Summary</label>
+        </body>
